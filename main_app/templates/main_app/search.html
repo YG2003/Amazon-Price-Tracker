@@ -1,15 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href = "{% static 'styles.css' %}">
 
     </head>
-    <body>
-        <h1>ENTER AMAZON PRODUCT'S URL</h1>
+    <body class="background1">
+        <h1 class="heading">ENTER AMAZON PRODUCT'S URL</h1>
         <form method="POST">
             {% csrf_token %}
             <input type="text" name="searchbox" placeholder="Enter URL">
             <input type="number" name="max_price" placeholder="Enter Maximum Price">
-            <button type="submit">Submit</button>
+            <button class ="submitbutton" type="submit">Submit</button>
         </form>
     </body>
 </html>

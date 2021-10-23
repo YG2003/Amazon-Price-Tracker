@@ -1,16 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 
 <html>
     <head>
+        <link rel="stylesheet" href = "{% static 'styles.css' %}">
 
     </head>
-    <body>
-        <h1>REGISTER AN ACCOUNT TODAY</h1>
+    <body class="background1">
+        <h1 class ="heading">REGISTER AN ACCOUNT TODAY</h1>
+        <div class="container">
+            <p class="w-message">Hello there. You can signup here.</p>
     <form method="POST">
         {% csrf_token %}
         {{ form}}
         <button type="submit">SUBMIT</button>
 
     </form>
-    </body>
+    <p class="w-message">Got an account?
+        <a href="{% url 'login' %}" class="a-submit">Login</a>
+    </p>
+    </div></body>
 </html>
