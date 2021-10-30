@@ -1,23 +1,88 @@
-{% load static %}
 <!DOCTYPE html>
-
 <html>
-    <head>
-        <link rel="stylesheet" href = "{% static 'styles.css' %}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
 
-    </head>
-    <body class="background1">
-        <h1 class ="heading">REGISTER AN ACCOUNT TODAY</h1>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+      *{
+        font-family: 'Quicksand', sans-serif; 
+      }
+    </style>
+  </head>
+  <body>
+    
+
+    <section class="hero is-dark is-fullheight">
+      <div class="hero-body">
         <div class="container">
-            <p class="w-message">Hello there. You can signup here.</p>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form}}
-        <button type="submit">SUBMIT</button>
+          <div class="columns is-centered">
+            <div class="column is-5-tablet is-4-desktop is-3-widescreen">
 
-    </form>
-    <p class="w-message">Got an account?
-        <a href="{% url 'login' %}" class="a-submit">Login</a>
-    </p>
-    </div></body>
+              <form method="POST" action="." class="box">
+                {% csrf_token %}
+
+                <h1 class="has-text-centered mb-5 is-size-3">Register</h1>
+
+                <div class="field">
+                  <label for="" class="label">Username</label>
+                  <div class="control has-icons-left">
+                    {{ form.username }}
+                    <span class="icon is-small is-left">
+                      <i class="fa fa-user"></i>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="" class="label">Email</label>
+                  <div class="control has-icons-left">
+                    {{ form.email }}
+                    <span class="icon is-small is-left">
+                      <i class="fa fa-envelope"></i>
+                    </span>
+                  </div>
+                </div>
+                
+                <div class="field">
+                  <label for="" class="label">Password</label>
+                  <div class="control has-icons-left">
+                    {{ form.password1 }}
+                    <span class="icon is-small is-left">
+                      <i class="fa fa-lock"></i>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="" class="label">Confirm password</label>
+                  <div class="control has-icons-left">
+                    {{ form.password2 }}
+                    <span class="icon is-small is-left">
+                      <i class="fa fa-lock"></i>
+                    </span>
+                  </div>
+                </div>
+       
+                <div class="field">
+                  <center><button class="button is-success" type=submit>
+                    Register
+                  </button>
+                </div>
+                <div class="field">
+                  Already registered ? <a href="{% url 'login' %}">Login</a> 
+                </div></center>
+
+              </form>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+ </body>
 </html>

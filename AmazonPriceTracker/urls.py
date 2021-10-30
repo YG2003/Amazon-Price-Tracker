@@ -19,10 +19,12 @@ from users.views import register
 from django.contrib.auth.views import LoginView, LogoutView
 from main_app.views import search
 
+from users.forms import UserLoginForm
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('search/', search, name="search"),
-    path('register/', register, name='register-view'),
-    path('login/', LoginView.as_view(template_name="users/login.html"), name='login' ),
+    path('search', search, name="search"),
+    path('', register, name='register-view'),
+    path('login/', LoginView.as_view(template_name="users/login.html", authentication_form=UserLoginForm), name='login' ),
     path('logout/', LogoutView.as_view(template_name="users/logout.html"), name='logout'),
 ]
